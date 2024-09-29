@@ -35,10 +35,10 @@ h1 , h2 , h3 , h4 , h5 , h6 , p , ul {
 
 /*Header*/
 /*#region*/ 
-.col-auto{
+/* .col-auto{
     width: auto;
     padding: 0 15px;
-}
+} */
 
 header .row{
     min-height: 120px;
@@ -174,6 +174,16 @@ header ul:first-child li a , .sec-div li a{
         padding: 0;
     }
 }
+
+@media screen and (max-width: 500px){
+    .hero-section .hero-item{
+        max-width: unset;
+    }
+
+    .hero-item h1{
+        font-size: 45px;
+    }
+}
 /*#endregion*/
 
 /*Range Section*/
@@ -208,6 +218,13 @@ header ul:first-child li a , .sec-div li a{
     overflow: hidden;
 }
 
+.item-img img{
+    display: block ;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .item h3{
     font-size: 24px;
     color: var(--light-black);
@@ -225,17 +242,11 @@ header ul:first-child li a , .sec-div li a{
     margin-bottom: 62px;
 }
 
-.position-class{
-    position: relative;
-}
 
 .products-item{
     background-color: var(--gray-bk);
-    transition: all linear 0.3s;
-}
-
-.products-item:hover{
-    transform: scale(1.02);
+    position: relative;
+    overflow: hidden;
 }
 
 .overlay{
@@ -243,11 +254,18 @@ header ul:first-child li a , .sec-div li a{
     background-color: #3A3A3A;
     opacity: 0.72;
     z-index: 3;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: all linear 0.3s;
 }
+
+.products-item:hover .overlay{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+} 
 
 .overlay .main-link{
     padding: 12px;
@@ -431,6 +449,7 @@ footer .row{
     color: var(--gray);
     font-size: 16px;
     font-weight: 400;
+    width: 311.912px;
 }
 
 .sec-div h4{
@@ -465,7 +484,7 @@ footer .row{
     color: var(--black);
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 992px){
     footer .row {
         display: flex;
         flex-direction: column;
@@ -478,15 +497,11 @@ footer .row{
         align-items: center;
     }
 
-    footer .col{
-        width: 100%;
-    }
-
     footer form{
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
- }
+}
 /*#endregion*/
